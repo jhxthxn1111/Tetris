@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1, "category": "Historia", "difficulty": "EASY",
+    "text": "¿Quién llegó a América en 1492?",
+    "options": ["Marco Polo", "Cristóbal Colón", "Magallanes", "Vasco da Gama"],
+    "correctIndex": 1,
+    "explanation": "Cristóbal Colón llegó a América el 12 de octubre de 1492, buscando una ruta hacia Asia."
+  },
+  {
+    "id": 2, "category": "Matemáticas", "difficulty": "EASY",
+    "text": "¿Cuánto es 7 × 8?",
+    "options": ["54", "56", "63", "48"],
+    "correctIndex": 1,
+    "explanation": "7 × 8 = 56. Truco: 5, 6, 7, 8 → 56 = 7 × 8."
+  },
+  {
+    "id": 3, "category": "Geografía", "difficulty": "EASY",
+    "text": "¿Cuál es la capital de Colombia?",
+    "options": ["Medellín", "Cali", "Bogotá", "Cartagena"],
+    "correctIndex": 2,
+    "explanation": "Bogotá es la capital de Colombia desde la época de la Nueva Granada."
+  },
+  {
+    "id": 4, "category": "Ciencia", "difficulty": "MEDIUM",
+    "text": "¿Qué gas absorben las plantas en la fotosíntesis?",
+    "options": ["Oxígeno", "Nitrógeno", "Dióxido de carbono", "Hidrógeno"],
+    "correctIndex": 2,
+    "explanation": "Las plantas absorben CO₂ y liberan oxígeno usando la luz del sol."
+  },
+  {
+    "id": 5, "category": "Historia", "difficulty": "MEDIUM",
+    "text": "¿En qué año fue la Batalla de Boyacá?",
+    "options": ["1810", "1819", "1830", "1821"],
+    "correctIndex": 1,
+    "explanation": "La Batalla de Boyacá fue el 7 de agosto de 1819, liderada por Simón Bolívar."
+  },
+  {
+    "id": 6, "category": "Matemáticas", "difficulty": "MEDIUM",
+    "text": "¿Cuál es la raíz cuadrada de 144?",
+    "options": ["10", "11", "12", "14"],
+    "correctIndex": 2,
+    "explanation": "12 × 12 = 144, por eso la raíz cuadrada es 12."
+  },
+  {
+    "id": 7, "category": "Ciencia", "difficulty": "HARD",
+    "text": "¿Cuál es el símbolo químico del oro?",
+    "options": ["Ag", "Gd", "Au", "Or"],
+    "correctIndex": 2,
+    "explanation": "Au viene del latín 'aurum'. Ag es la plata."
+  },
+  {
+    "id": 8, "category": "Historia", "difficulty": "HARD",
+    "text": "¿En qué año cayó el Muro de Berlín?",
+    "options": ["1985", "1989", "1991", "1979"],
+    "correctIndex": 1,
+    "explanation": "El Muro de Berlín cayó el 9 de noviembre de 1989."
+  }
+]

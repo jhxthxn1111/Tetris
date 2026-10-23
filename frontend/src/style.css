@@ -1,0 +1,41 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0b0b24; color: #fff; font-family: system-ui, sans-serif; }
+.layout { min-height: 100vh; padding: 20px; }
+.header { text-align: center; margin-bottom: 20px; }
+.header h1 { font-size: 2.2rem; }
+.header h1 span { color: #fb9a22; }
+.header p { color: #8f93ff; }
+.content { display: flex; justify-content: center; }
+
+.btn { background: #fb9a22; color: #111; border: 0; padding: 12px 24px;
+       border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer; }
+.btn:hover { filter: brightness(1.1); }
+.btn.secondary { background: #1b1b45; color: #fff; border: 2px solid #5b63ff; }
+.btn.active { background: #4ade80; color: #111; }
+
+.menu { text-align: center; display: grid; gap: 20px; }
+.menu .row { display: flex; gap: 10px; justify-content: center; }
+
+.game { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+.stats { display: flex; gap: 10px; margin-bottom: 10px; }
+.stat { background: #15153a; border: 2px solid #5b63ff; border-radius: 8px; padding: 6px 12px; }
+.stat b { display: block; font-size: 1.3rem; }
+
+.board { display: grid; grid-template-columns: repeat(10, 28px); gap: 1px;
+         background: #05051a; border: 3px solid #5b63ff; border-radius: 8px; padding: 4px; }
+.cell { width: 28px; height: 28px; background: #0d0d2b; border-radius: 3px; }
+
+.panel { width: 420px; background: #15153a; border: 3px solid #fb9a22;
+         border-radius: 14px; padding: 18px; align-self: flex-start; }
+.panel h2 { font-size: 1.1rem; margin-bottom: 4px; }
+.panel .cat { color: #fb9a22; font-size: .85rem; margin-bottom: 10px; }
+.option { display: block; width: 100%; text-align: left; margin-top: 8px; padding: 10px;
+          border-radius: 8px; border: 2px solid #5b63ff; background: #1b1b45;
+          color: #fff; cursor: pointer; }
+.option:disabled { cursor: default; }
+.option.correct { border-color: #4ade80; background: #14532d; }
+.option.wrong { border-color: #ef4444; background: #5b1414; }
+.tip { margin-top: 12px; padding: 10px; border-left: 4px solid #facc15; background: #0d0d2b; }
+.result.ok { color: #4ade80; font-weight: 700; margin-top: 10px; }
+.result.bad { color: #ef4444; font-weight: 700; margin-top: 10px; }
+.hint { color: #8f93ff; text-align: center; margin-top: 8px; font-size: .85rem; }
