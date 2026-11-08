@@ -54,5 +54,89 @@
     "options": ["1985", "1989", "1991", "1979"],
     "correctIndex": 1,
     "explanation": "El Muro de Berlín cayó el 9 de noviembre de 1989."
+  },
+  {
+    "id": 9, "category": "Historia", "difficulty": "EASY",
+    "text": "¿En qué año llegó Cristóbal Colón a América?",
+    "options": ["1492", "1519", "1521", "1810"],
+    "correctIndex": 0,
+    "explanation": "Cristóbal Colón llegó a América el 12 de octubre de 1492."
+  },
+  {
+    "id": 10, "category": "Geografía", "difficulty": "EASY",
+    "text": "¿Cuál es el océano más grande del mundo?",
+    "options": ["Atlántico", "Índico", "Pacífico", "Ártico"],
+    "correctIndex": 2,
+    "explanation": "El océano Pacífico es el más grande y profundo de la Tierra."
+  },
+  {
+    "id": 11, "category": "Ciencia", "difficulty": "EASY",
+    "text": "¿Cuál es el planeta conocido como el planeta rojo?",
+    "options": ["Venus", "Marte", "Júpiter", "Saturno"],
+    "correctIndex": 1,
+    "explanation": "Marte se llama el planeta rojo por el óxido de hierro en su superficie."
+  },
+  {
+    "id": 12, "category": "Arte", "difficulty": "MEDIUM",
+    "text": "¿Quién pintó La Gioconda (Mona Lisa)?",
+    "options": ["Van Gogh", "Picasso", "Leonardo da Vinci", "Miguel Ángel"],
+    "correctIndex": 2,
+    "explanation": "La Mona Lisa fue pintada por Leonardo da Vinci a inicios del siglo XVI."
+  },
+  {
+    "id": 13, "category": "Historia", "difficulty": "MEDIUM",
+    "text": "¿En qué año comenzó la Segunda Guerra Mundial?",
+    "options": ["1914", "1939", "1945", "1918"],
+    "correctIndex": 1,
+    "explanation": "La Segunda Guerra Mundial comenzó el 1 de septiembre de 1939 con la invasión de Polonia."
+  },
+  {
+    "id": 14, "category": "Geografía", "difficulty": "MEDIUM",
+    "text": "¿Cuál es la capital de Japón?",
+    "options": ["Seúl", "Pekín", "Tokio", "Bangkok"],
+    "correctIndex": 2,
+    "explanation": "Tokio es la capital y ciudad más poblada de Japón."
+  },
+  {
+    "id": 15, "category": "Ciencia", "difficulty": "MEDIUM",
+    "text": "¿Qué elemento químico tiene el símbolo O?",
+    "options": ["Oro", "Oxígeno", "Osmio", "Ozono"],
+    "correctIndex": 1,
+    "explanation": "El oxígeno es esencial para la respiración y su símbolo es O."
+  },
+  {
+    "id": 16, "category": "Arte", "difficulty": "HARD",
+    "text": "¿Quién pintó La Noche Estrellada?",
+    "options": ["Claude Monet", "Vincent van Gogh", "Salvador Dalí", "Pablo Picasso"],
+    "correctIndex": 1,
+    "explanation": "La Noche Estrellada es una obra famosa de Vincent van Gogh pintada en 1889."
+  },
+  {
+    "id": 17, "category": "Historia", "difficulty": "HARD",
+    "text": "¿Quién fue el primer presidente de los Estados Unidos?",
+    "options": ["Thomas Jefferson", "Abraham Lincoln", "George Washington", "John Adams"],
+    "correctIndex": 2,
+    "explanation": "George Washington fue el primer presidente de EE. UU. (1789-1797)."
+  },
+  {
+    "id": 18, "category": "Geografía", "difficulty": "HARD",
+    "text": "¿Cuál es el río más largo del mundo?",
+    "options": ["Amazonas", "Nilo", "Yangtsé", "Misisipi"],
+    "correctIndex": 0,
+    "explanation": "El río Amazonas es considerado el más largo del mundo con aproximadamente 6.992 km."
+  },
+  {
+    "id": 19, "category": "Ciencia", "difficulty": "HARD",
+    "text": "¿Cuál es la velocidad de la luz en el vacío aproximada?",
+    "options": ["300.000 km/s", "150.000 km/s", "1.000 km/s", "30.000 km/s"],
+    "correctIndex": 0,
+    "explanation": "La luz viaja a unos 299.792 km/s en el vacío, redondeado a 300.000 km/s."
+  },
+  {
+    "id": 20, "category": "Arte", "difficulty": "EASY",
+    "text": "¿En qué museo se encuentra La Mona Lisa?",
+    "options": ["El Prado", "El Louvre", "El British Museum", "El Met"],
+    "correctIndex": 1,
+    "explanation": "La Mona Lisa se exhibe en el Museo del Louvre en París, Francia."
   }
 ]
