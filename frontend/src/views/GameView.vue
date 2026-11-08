@@ -3,7 +3,7 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Board from '../components/Board.vue'
 import QuestionPanel from '../components/QuestionPanel.vue'
-import { fetchRandomQuestion } from '../services/api'
+import { fetchRandomQuestion, submitAnswer } from '../services/api'
 import * as T from '../game/tetris'
 
 const route = useRoute()
@@ -19,6 +19,7 @@ const lines = ref(0)
 const streak = ref(0)
 const question = ref(null)
 const selected = ref(null)
+const result = ref(null)   // { correct, correctIndex, selectedIndex, explanation } | null
 const nextKey = ref(null)
 const error = ref('')
 
@@ -59,6 +60,7 @@ async function lockPiece() {
   score.value += cleared * 100 * level.value
   piece.value = null
   selected.value = null
+  result.value = null
   error.value = ''
   phase.value = 'question'
   try {
@@ -68,19 +70,28 @@ async function lockPiece() {
   }
 }
 
-function answer(i) {
+async function answer(i) {
+  if (result.value) return // ya se respondió esta pregunta
   selected.value = i
-  if (i === question.value.correctIndex) {
-    score.value += 500
-    streak.value++
-    nextKey.value = T.bestPieceKey(board.value) // ficha correcta
-  } else {
-    streak.value = 0
-    nextKey.value = T.randomKey() // ficha cualquiera
+  try {
+    result.value = await submitAnswer(question.value.id, i)
+    if (result.value.correct) {
+      score.value += 500
+      streak.value++
+      nextKey.value = T.bestPieceKey(board.value) // ficha ideal
+    } else {
+      streak.value = 0
+      nextKey.value = T.randomKey() // ficha al azar
+    }
+  } catch (e) {
+    error.value = e.message
+    selected.value = null
   }
 }
 
 function next() {
+  result.value = null
+  selected.value = null
   phase.value = 'playing'
   newPiece(nextKey.value)
   if (phase.value === 'playing') loop()
@@ -139,7 +150,7 @@ onBeforeUnmount(() => {
     <QuestionPanel
       v-if="phase === 'question' && question"
       :question="question"
-      :selected="selected"
+      :result="result"
       @answer="answer"
       @next="next"
     />
