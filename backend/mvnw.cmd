@@ -33,7 +33,7 @@ if defined JAVA_HOME goto findJavaFromJavaHome
 
 set JAVA_EXE=java.exe
 %JAVA_EXE% -version >NUL 2>&1
-if "%ERRORLEVEL%"==0 goto init
+if "%ERRORLEVEL%"=="0" goto init
 
 echo.
 echo ERROR: JAVA_HOME is not defined and no 'java' command could be found in your PATH.
@@ -77,8 +77,9 @@ goto execute
 set WRAPPER_JAR="%DIRNAME%.mvn\wrapper\maven-wrapper.jar"
 
 @rem Execute Maven
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %MAVEN_OPTS% -classpath "%WRAPPER_JAR%" org.apache.maven.wrapper.MavenWrapperMain %CMD_LINE_ARGS%
-endlocal
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %MAVEN_OPTS% -Dmaven.multiModuleProjectDirectory="%DIRNAME%." -classpath "%WRAPPER_JAR%" org.apache.maven.wrapper.MavenWrapperMain %CMD_LINE_ARGS%
+set MAVEN_EXIT=%ERRORLEVEL%
+endlocal & exit /b %MAVEN_EXIT%
 :fail
 rem Set variable %ERRORLEVEL% to indicate failure
 exit /b 1
