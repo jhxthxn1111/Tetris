@@ -15,18 +15,21 @@ const start = () => router.push({ name: 'game', query: { difficulty: difficulty.
 
 <template>
   <div class="menu">
-    <h2>Elige la dificultad</h2>
-    <div class="row">
-      <button
-        v-for="o in options"
-        :key="o.value"
-        class="btn secondary"
-        :class="{ active: difficulty === o.value }"
-        @click="difficulty = o.value"
-      >
-        {{ o.label }}
-      </button>
+    <div class="menu-card">
+      <h2>Elige la dificultad</h2>
+      <p class="subtitle">Cada bloque que encaja lanza una lección</p>
+      <div class="row">
+        <button
+          v-for="o in options"
+          :key="o.value"
+          class="btn secondary"
+          :class="{ active: difficulty === o.value }"
+          @click="difficulty = o.value"
+        >
+          {{ o.label }}
+        </button>
+      </div>
+      <button class="btn" @click="start">Empezar · Nivel 1</button>
     </div>
-    <button class="btn" @click="start">Empezar · Nivel 1</button>
   </div>
 </template>

@@ -152,13 +152,20 @@ onBeforeUnmount(() => {
   <div class="game">
     <div>
       <div class="stats">
-        <div class="stat">NIVEL<b>{{ level }}</b></div>
-        <div class="stat">PUNTAJE<b>{{ score }}</b></div>
-        <div class="stat">RACHA<b>x{{ streak }}</b></div>
-        <div class="stat">PREGUNTA EN<b>{{ Math.max(0, PIECES_PER_QUESTION - piecesSinceQuestion) }}</b></div>
+        <div class="stat"><span>Nivel</span><b>{{ level }}</b></div>
+        <div class="stat"><span>Puntaje</span><b>{{ score }}</b></div>
+        <div class="stat"><span>Racha</span><b>x{{ streak }}</b></div>
+        <div class="stat"><span>Pregunta en</span><b>{{ Math.max(0, PIECES_PER_QUESTION - piecesSinceQuestion) }}</b></div>
       </div>
-      <Board :board="board" :piece="piece" />
-      <p class="hint">← → mover · ↑ rotar · ↓ bajar · Espacio caída</p>
+      <div class="board-wrapper">
+        <Board :board="board" :piece="piece" />
+      </div>
+      <p class="hint">
+        <span class="key">←</span><span class="key">→</span><span class="key label">mover</span>
+        <span class="key">↑</span><span class="key label">rotar</span>
+        <span class="key">↓</span><span class="key label">bajar</span>
+        <span class="key">Espacio</span><span class="key label">caída</span>
+      </p>
     </div>
 
     <QuestionPanel
@@ -169,10 +176,10 @@ onBeforeUnmount(() => {
       @next="next"
     />
 
-    <div v-else-if="phase === 'over'" class="panel">
+    <div v-else-if="phase === 'over'" class="gameover">
       <h2>¡Juego terminado!</h2>
-      <p class="tip">Puntaje final: {{ score }}</p>
-      <button class="btn" style="margin-top: 12px" @click="router.push('/')">Volver al menú</button>
+      <p class="score">Puntaje final: {{ score }}</p>
+      <button class="btn" @click="router.push('/')">Volver al menú</button>
     </div>
 
     <p v-if="error" class="result bad">{{ error }} (¿está corriendo el backend?)</p>
