@@ -138,5 +138,145 @@
     "options": ["El Prado", "El Louvre", "El British Museum", "El Met"],
     "correctIndex": 1,
     "explanation": "La Mona Lisa se exhibe en el Museo del Louvre en París, Francia."
+  },
+  {
+    "id": 21, "category": "Historia", "difficulty": "EASY",
+    "text": "¿En qué año se independizó Colombia?",
+    "options": ["1821", "1810", "1830", "1819"],
+    "correctIndex": 1,
+    "explanation": "Colombia inició su independencia el 20 de julio de 1810."
+  },
+  {
+    "id": 22, "category": "Historia", "difficulty": "MEDIUM",
+    "text": "¿Quién fue el primer presidente de Colombia?",
+    "options": ["Simón Bolívar", "Francisco de Paula Santander", "Jaime Garzón", "Rafael Núñez"],
+    "correctIndex": 0,
+    "explanation": "Simón Bolívar fue el primer presidente de la Gran Colombia en 1819."
+  },
+  {
+    "id": 23, "category": "Matemáticas", "difficulty": "EASY",
+    "text": "¿Cuánto es 12 × 12?",
+    "options": ["124", "144", "134", "154"],
+    "correctIndex": 1,
+    "explanation": "12 × 12 = 144."
+  },
+  {
+    "id": 24, "category": "Matemáticas", "difficulty": "EASY",
+    "text": "¿Cuánto es 15 + 27?",
+    "options": ["42", "32", "38", "48"],
+    "correctIndex": 0,
+    "explanation": "15 + 27 = 42."
+  },
+  {
+    "id": 25, "category": "Matemáticas", "difficulty": "MEDIUM",
+    "text": "¿Cuánto es 2 elevado a 5?",
+    "options": ["16", "32", "64", "10"],
+    "correctIndex": 1,
+    "explanation": "2^5 = 2 × 2 × 2 × 2 × 2 = 32."
+  },
+  {
+    "id": 26, "category": "Matemáticas", "difficulty": "MEDIUM",
+    "text": "¿Cuántos grados tiene un ángulo recto?",
+    "options": ["180", "90", "60", "45"],
+    "correctIndex": 1,
+    "explanation": "Un ángulo recto mide exactamente 90 grados."
+  },
+  {
+    "id": 27, "category": "Matemáticas", "difficulty": "HARD",
+    "text": "¿Cuál es el valor aproximado de π a dos decimales?",
+    "options": ["3.14", "3.16", "3.12", "3.00"],
+    "correctIndex": 0,
+    "explanation": "π (pi) vale aproximadamente 3.14159..., que redondeado a dos decimales es 3.14."
+  },
+  {
+    "id": 28, "category": "Matemáticas", "difficulty": "HARD",
+    "text": "¿Cuánto es el factorial de 5 (5!)?",
+    "options": ["60", "100", "120", "150"],
+    "correctIndex": 2,
+    "explanation": "5! = 5 × 4 × 3 × 2 × 1 = 120."
+  },
+  {
+    "id": 29, "category": "Geografía", "difficulty": "EASY",
+    "text": "¿En qué continente está Brasil?",
+    "options": ["Europa", "África", "América del Sur", "Asia"],
+    "correctIndex": 2,
+    "explanation": "Brasil está en América del Sur y es el país más grande de ese continente."
+  },
+  {
+    "id": 30, "category": "Geografía", "difficulty": "MEDIUM",
+    "text": "¿Cuál es el país más grande del mundo por superficie?",
+    "options": ["Canadá", "China", "Rusia", "Estados Unidos"],
+    "correctIndex": 2,
+    "explanation": "Rusia es el país más extenso del mundo, con más de 17 millones de km²."
+  },
+  {
+    "id": 31, "category": "Geografía", "difficulty": "HARD",
+    "text": "¿Cuál es la capital de Australia?",
+    "options": ["Sídney", "Melbourne", "Canberra", "Brisbane"],
+    "correctIndex": 2,
+    "explanation": "La capital de Australia es Canberra, no Sídney ni Melbourne."
+  },
+  {
+    "id": 32, "category": "Geografía", "difficulty": "HARD",
+    "text": "¿En qué país se encuentra la ciudadela de Machu Picchu?",
+    "options": ["Bolivia", "Perú", "Ecuador", "Chile"],
+    "correctIndex": 1,
+    "explanation": "Machu Picchu está en Perú, en la región de Cusco, construida por los incas."
+  },
+  {
+    "id": 33, "category": "Ciencia", "difficulty": "EASY",
+    "text": "¿Cuántos planetas tiene el sistema solar?",
+    "options": ["7", "8", "9", "10"],
+    "correctIndex": 1,
+    "explanation": "El sistema solar tiene 8 planetas: Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno."
+  },
+  {
+    "id": 34, "category": "Ciencia", "difficulty": "MEDIUM",
+    "text": "¿Qué órgano bombea la sangre en el cuerpo humano?",
+    "options": ["Hígado", "Corazón", "Pulmón", "Cerebro"],
+    "correctIndex": 1,
+    "explanation": "El corazón es el órgano que impulsa la sangre a través de los vasos sanguíneos."
+  },
+  {
+    "id": 35, "category": "Ciencia", "difficulty": "HARD",
+    "text": "¿Quién formuló la teoría de la relatividad?",
+    "options": ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Stephen Hawking"],
+    "correctIndex": 1,
+    "explanation": "Albert Einstein publicó la teoría de la relatividad especial en 1905 y la general en 1915."
+  },
+  {
+    "id": 36, "category": "Arte", "difficulty": "EASY",
+    "text": "¿Quién pintó El Grito?",
+    "options": ["Vincent van Gogh", "Pablo Picasso", "Edvard Munch", "Claude Monet"],
+    "correctIndex": 2,
+    "explanation": "El Grito es una obra famosa del pintor noruego Edvard Munch."
+  },
+  {
+    "id": 37, "category": "Arte", "difficulty": "EASY",
+    "text": "¿En qué ciudad está la Capilla Sixtina?",
+    "options": ["Florencia", "Venecia", "Roma", "París"],
+    "correctIndex": 2,
+    "explanation": "La Capilla Sixtina está en la Ciudad del Vaticano, dentro de Roma, Italia."
+  },
+  {
+    "id": 38, "category": "Arte", "difficulty": "MEDIUM",
+    "text": "¿Quién pintó El Guernica?",
+    "options": ["Salvador Dalí", "Pablo Picasso", "Diego Velázquez", "Joan Miró"],
+    "correctIndex": 1,
+    "explanation": "Pablo Picasso pintó El Guernica en 1937 como denuncia de los bombardeos de la guerra civil española."
+  },
+  {
+    "id": 39, "category": "Arte", "difficulty": "HARD",
+    "text": "¿Quién pintó La persistencia de la memoria?",
+    "options": ["Salvador Dalí", "Pablo Picasso", "Henri Matisse", "Gustav Klimt"],
+    "correctIndex": 0,
+    "explanation": "La persistencia de la memoria, con sus relojes blandos, es de Salvador Dalí (1931)."
+  },
+  {
+    "id": 40, "category": "Arte", "difficulty": "HARD",
+    "text": "¿En qué año murió Leonardo da Vinci?",
+    "options": ["1519", "1503", "1550", "1492"],
+    "correctIndex": 0,
+    "explanation": "Leonardo da Vinci murió el 2 de mayo de 1519 en Amboise, Francia."
   }
 ]

@@ -5,6 +5,9 @@ export async function fetchRandomQuestion(difficulty) {
 }
 
 export async function submitAnswer(id, selectedIndex) {
+  if (Number.isInteger(selectedIndex) === false || selectedIndex < 0 || selectedIndex > 3) {
+    throw new Error('Índice de opción inválido: debe ser 0, 1, 2 o 3')
+  }
   const res = await fetch(`/api/questions/${id}/answer`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

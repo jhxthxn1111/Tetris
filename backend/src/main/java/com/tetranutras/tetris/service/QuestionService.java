@@ -46,6 +46,11 @@ public class QuestionService {
      * el índice correcto, el índice seleccionado y la explicación.
      */
     public AnswerResult check(int id, int selectedIndex) {
+        // Validación de entrada: el índice de opción debe estar entre 0 y 3 (contrato A/B/C/D)
+        if (selectedIndex < 0 || selectedIndex > 3) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "Índice de opción inválido: debe estar entre 0 y 3");
+        }
         Question q = repository.findAll().stream()
                 .filter(question -> question.id() == id)
                 .findFirst()

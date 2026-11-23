@@ -17,6 +17,9 @@ const phase = ref('playing') // playing | question | over
 const score = ref(0)
 const lines = ref(0)
 const streak = ref(0)
+// Contador de piezas colocadas desde la última pregunta del Modo Aprende.
+const piecesSinceQuestion = ref(0)
+const PIECES_PER_QUESTION = 5
 const question = ref(null)
 const selected = ref(null)
 const result = ref(null)   // { correct, correctIndex, selectedIndex, explanation } | null
@@ -62,11 +65,20 @@ async function lockPiece() {
   selected.value = null
   result.value = null
   error.value = ''
-  phase.value = 'question'
-  try {
-    question.value = await fetchRandomQuestion(difficulty)
-  } catch (e) {
-    error.value = e.message
+
+  // Mecánica del Modo Aprende: una pregunta cada 5 piezas colocadas.
+  piecesSinceQuestion.value++
+  if (piecesSinceQuestion.value >= PIECES_PER_QUESTION) {
+    piecesSinceQuestion.value = 0 // reinicio consistente del contador
+    phase.value = 'question' // pausa el ciclo del juego (loop no se rearranca hasta next())
+    try {
+      question.value = await fetchRandomQuestion(difficulty)
+    } catch (e) {
+      error.value = e.message
+    }
+  } else {
+    nextKey.value = T.randomKey() // no hay pregunta: ficha al azar y se sigue jugando
+    next()
   }
 }
 
@@ -93,6 +105,7 @@ function next() {
   result.value = null
   selected.value = null
   phase.value = 'playing'
+  if (!nextKey.value) nextKey.value = T.randomKey() // seguridad: nunca spawnear sin clave
   newPiece(nextKey.value)
   if (phase.value === 'playing') loop()
 }
@@ -142,6 +155,7 @@ onBeforeUnmount(() => {
         <div class="stat">NIVEL<b>{{ level }}</b></div>
         <div class="stat">PUNTAJE<b>{{ score }}</b></div>
         <div class="stat">RACHA<b>x{{ streak }}</b></div>
+        <div class="stat">PREGUNTA EN<b>{{ Math.max(0, PIECES_PER_QUESTION - piecesSinceQuestion) }}</b></div>
       </div>
       <Board :board="board" :piece="piece" />
       <p class="hint">← → mover · ↑ rotar · ↓ bajar · Espacio caída</p>
