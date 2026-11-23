@@ -2,7 +2,6 @@ package com.tetranutras.tetris.advice;
 
 import com.tetranutras.tetris.dto.ApiError;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
