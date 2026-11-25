@@ -61,3 +61,32 @@ describe('submitAnswer', () => {
     await expect(submitAnswer(5, 0)).rejects.toThrow('No se pudo validar la respuesta')
   })
 })
+
+describe('submitAnswer, validación del índice', () => {
+  it.each([[-1], [4], [1.5], ['2'], [undefined], [NaN]])(
+    'rechaza el índice %s antes de llamar al servidor',
+    async (indice) => {
+      vi.stubGlobal('fetch', vi.fn())
+
+      await expect(submitAnswer(5, indice)).rejects.toThrow('Índice de opción inválido')
+    }
+  )
+
+  it('no llama a fetch cuando el índice es inválido', async () => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+
+    await submitAnswer(5, 9).catch(() => {})
+
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it.each([[0], [3]])('acepta el índice límite %s', async (indice) => {
+    const fetchMock = vi.fn().mockResolvedValue(respuestaOk({ correct: true }))
+    vi.stubGlobal('fetch', fetchMock)
+
+    await submitAnswer(5, indice)
+
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+})

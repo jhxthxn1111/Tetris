@@ -7,20 +7,20 @@ package com.tetranutras.tetris.dto;
  */
 public class AnswerRequest {
 
-    private int selectedIndex;
+    private Integer selectedIndex;
 
     public AnswerRequest() {
     }
 
-    public AnswerRequest(int selectedIndex) {
+    public AnswerRequest(Integer selectedIndex) {
         this.selectedIndex = selectedIndex;
     }
 
-    public int selectedIndex() {
+    public Integer selectedIndex() {
         return selectedIndex;
     }
 
-    public void setSelectedIndex(int selectedIndex) {
+    public void setSelectedIndex(Integer selectedIndex) {
         this.selectedIndex = selectedIndex;
     }
 }

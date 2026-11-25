@@ -4,7 +4,9 @@ import com.tetranutras.tetris.dto.AnswerRequest;
 import com.tetranutras.tetris.dto.AnswerResult;
 import com.tetranutras.tetris.dto.QuestionDto;
 import com.tetranutras.tetris.service.QuestionService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -30,6 +32,9 @@ public class QuestionController {
 
     @PostMapping("/{id}/answer")
     public AnswerResult check(@PathVariable int id, @RequestBody AnswerRequest request) {
+        if (request == null || request.selectedIndex() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Debe enviar selectedIndex");
+        }
         return service.check(id, request.selectedIndex());
     }
 }

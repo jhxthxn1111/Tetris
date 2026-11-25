@@ -4,11 +4,15 @@ import com.tetranutras.tetris.dto.ApiError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.time.Instant;
 
@@ -20,6 +24,17 @@ import java.time.Instant;
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    private ResponseEntity<ApiError> construir(HttpStatus status, String mensaje, WebRequest request) {
+        ApiError error = new ApiError(
+                Instant.now().toString(),
+                status.value(),
+                status.getReasonPhrase(),
+                mensaje,
+                request.getDescription(false).replace("uri=", "")
+        );
+        return ResponseEntity.status(status).body(error);
+    }
 
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<ApiError> handleResponseStatus(ResponseStatusException ex, WebRequest request) {
@@ -37,42 +52,42 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ApiError> handleMessageNotReadable(HttpMessageNotReadableException ex,
                                                              WebRequest request) {
-        HttpStatus status = HttpStatus.BAD_REQUEST;
-        ApiError error = new ApiError(
-                Instant.now().toString(),
-                status.value(),
-                status.getReasonPhrase(),
-                "Cuerpo de la petición inválido o mal formado",
-                request.getDescription(false).replace("uri=", "")
-        );
-        return ResponseEntity.badRequest().body(error);
+        return construir(HttpStatus.BAD_REQUEST, "Cuerpo de la petición inválido o mal formado", request);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiError> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                  WebRequest request) {
-        HttpStatus status = HttpStatus.BAD_REQUEST;
-        ApiError error = new ApiError(
-                Instant.now().toString(),
-                status.value(),
-                status.getReasonPhrase(),
-                "Errores de validación en la petición",
-                request.getDescription(false).replace("uri=", "")
-        );
-        return ResponseEntity.badRequest().body(error);
+        return construir(HttpStatus.BAD_REQUEST, "Errores de validación en la petición", request);
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<ApiError> handleMetodoNoPermitido(HttpRequestMethodNotSupportedException ex,
+                                                            WebRequest request) {
+        return construir(HttpStatus.METHOD_NOT_ALLOWED, "Método no permitido", request);
+    }
+
+    @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
+    public ResponseEntity<ApiError> handleTipoNoSoportado(HttpMediaTypeNotSupportedException ex,
+                                                          WebRequest request) {
+        return construir(HttpStatus.UNSUPPORTED_MEDIA_TYPE, "Tipo de contenido no soportado", request);
+    }
+
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<ApiError> handleNoEncontrado(NoResourceFoundException ex,
+                                                       WebRequest request) {
+        return construir(HttpStatus.NOT_FOUND, "Recurso no encontrado", request);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ApiError> handleParametroInvalido(MethodArgumentTypeMismatchException ex,
+                                                            WebRequest request) {
+        return construir(HttpStatus.BAD_REQUEST, "Parámetro con formato inválido", request);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> handleGeneric(Exception ex, WebRequest request) {
-        // ERROR 500: mensaje genérico sin filtra stack trace al cliente
-        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
-        ApiError error = new ApiError(
-                Instant.now().toString(),
-                status.value(),
-                status.getReasonPhrase(),
-                "Error interno del servidor",
-                request.getDescription(false).replace("uri=", "")
-        );
-        return ResponseEntity.status(status).body(error);
+        // ERROR 500: mensaje genérico sin filtrar stack trace al cliente
+        return construir(HttpStatus.INTERNAL_SERVER_ERROR, "Error interno del servidor", request);
     }
 }
